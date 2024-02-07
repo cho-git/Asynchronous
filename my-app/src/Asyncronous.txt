@@ -1,10 +1,10 @@
-javaScript >> 싱글 쓰레드
+👀javaScript >> 싱글 쓰레드
   ㄴ 한번에 하나의 작업만 진행한다
 멀티 쓰레드 Web APIs ( setTimeout , fetch , DOM)
 setTimeout 브라우저에서 제공되는 비동기 함수
 
 // 비동기 콜백
-Callback
+👀Callback
 다른함수의 인자로 전달되는 함수
 ex)
 function main(callback){
@@ -19,4 +19,145 @@ callback 자체는 비동기와 관련된건 아니지만
 비동기 처리에서 callback 함수가 유용하게 처리된다.
 >> 비동기콜백
 
+👀Promise 
+Promise Static 함수
+1.Promise.all , 2.Promise.allSettled , 3.Promise.any , 4.Promise.race
 
+1.Promise.al ㅍl([getName(),getTodo()]) 
+// >>> getName이 끝날떄까지 기다렸다 getTodo를 시작하는게 아니라 
+//      병렬적으로 같이 실행됨 
+
+then() , catch() , finally() 
+
+Pending / Fulfilled / Rejected
+대기      성공        실패
+
+비동기 작업이 아직 진행 중일때 
+Promise 객체는 Pending state를 갖고 있다
+(작업이 아직 성공/실패도 아닌 대기 상태)
+Pending 딱지가 붙은 빈 상자
+
+비동기 작업이 성공일 떄
+Promoise 객체는 반환한 결과값을 가지고 있다.
+Fulfilled 딱지가 붙은 상자 안에 Result 결과 값을 가지고 있다
+
+비동기 작업이 실패일 떄
+Promoise 객체는 Error 가지고 있다.
+Rejected 딱지가 붙은 상자 안에 Error 결과 값을 가지고 있다
+
+
+
+Ver 1.
+import React from "react";
+
+const Promises = () => {
+    //executor 함수안에서 
+    //성공하면 resolve ,  실패하면 reject
+    const promise = new Promise((resolve, reject) => {
+        // console.log('비동기 작업');
+        setTimeout(() => {
+            const data = { name: "CHO" };
+            // const data = null ;
+            if(data){
+            console.log('네트워크 요청 성공')
+            resolve(data)
+        }else{
+            reject(new Error("네트워크 문제!!"))
+        }
+            // 출력값 
+            // [[Prototype]] : Promise
+            // [[PromiseState]]  :  "fulfilled"
+            // [[PromiseResult]]  :  object
+            //                 name : "CHO"
+        }, 1000);
+    })
+    console.log(promise)
+    // 출력값 
+    // [[Prototype]] : Promise
+    // [[PromiseState]]  :  "pending"
+    // [[PromiseResult]]  :  undefined
+
+    return (
+        <div id='top' style={{
+            textAlign: 'center',
+            paddingTop: '15px',
+        }}>
+            <h3>Promise</h3>
+            <hr></hr>
+        </div>
+    )
+}
+export default Promises;
+
+
+Ver 2.
+import React from "react";
+
+function getdata(){
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = { name: "CHO" };
+            if(data){
+            console.log('네트워크 요청 성공')
+            resolve(data)
+        }else{
+            reject(new Error("네트워크 문제!!"))
+        }
+        }, 1000);
+    });
+    return promise;
+}
+const Promises = () => {
+    const promise = getdata();
+    console.log(promise)
+    return (
+        <div id='top' style={{
+            textAlign: 'center',
+            paddingTop: '15px',
+        }}>
+            <h3>Promise</h3>
+            <hr></hr>
+        </div>
+    )
+}
+export default Promises;
+
+
+Ver 3. 
+
+😀😀😀😀😀😀😀 //then() , catch() , finally() 😀😀😀😀😀😀😀
+const Promises = () => {
+    // const promise = getdata();
+    // promise.then((data)=>{console.log(`${data.name}완료`)})
+    getdata().then((data)=>{console.log(`${data.name} 안녕하세요`)
+}).catch((error)=>{console.log(error , "를 띄웠습니다")
+}).finally(()=>{console.log('실행 여부와 관계없이 무조건 실행되어야 하는 마무리 작업')})
+    return (
+        <div id='top' style={{
+            textAlign: 'center',
+            paddingTop: '15px',
+        }}>
+            <h3>Promise</h3>
+            <hr></hr>
+        </div>
+    )
+}
+
+
+
+//fetch api
+//URL : https://jsonplaceholder.typicode.com/users
+// fetch().then().catch().finally()
+
+export function ApiCall() {
+fetch("https://jsonplaceholder.typicode.com/users").then((response) =>{
+    return response.json();
+    }).then((data)=>{
+        console.log(data)
+    })
+    .catch((error)=>{
+        console.log(error,'에러')
+    }).finally(()=>{
+        console.log('마무리')
+    })
+}
