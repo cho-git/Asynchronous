@@ -1,0 +1,22 @@
+javaScript >> 싱글 쓰레드
+  ㄴ 한번에 하나의 작업만 진행한다
+멀티 쓰레드 Web APIs ( setTimeout , fetch , DOM)
+setTimeout 브라우저에서 제공되는 비동기 함수
+
+// 비동기 콜백
+Callback
+다른함수의 인자로 전달되는 함수
+ex)
+function main(callback){
+    callback();
+}
+
+main(() =>{
+    ../
+});
+
+callback 자체는 비동기와 관련된건 아니지만
+비동기 처리에서 callback 함수가 유용하게 처리된다.
+>> 비동기콜백
+
+

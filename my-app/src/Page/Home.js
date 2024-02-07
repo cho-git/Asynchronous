@@ -7,6 +7,7 @@ const Home = () =>{
             textAlign: 'center',
             paddingTop: '15px',
         }}><h3>Home</h3>
+            <h4>F12!</h4>
         </div>
     )
 }
