@@ -1,12 +1,13 @@
 import React from "react";
 
-const Home = () =>{
-    
-    return(
+const Home = () => {
+
+    return (
         <div id='top' style={{
             textAlign: 'center',
             paddingTop: '15px',
         }}><h3>Home</h3>
+            <hr></hr>
             <h4>F12!</h4>
         </div>
     )

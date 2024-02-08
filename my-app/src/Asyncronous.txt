@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=rY3sRxQZG6U&list=PLZ5oZ2KmQEYgab5iy6_L8XGMKxhCAN8RV
+별코딩 유튜브 참고
+
 👀javaScript >> 싱글 쓰레드
   ㄴ 한번에 하나의 작업만 진행한다
 멀티 쓰레드 Web APIs ( setTimeout , fetch , DOM)
@@ -23,7 +26,7 @@ callback 자체는 비동기와 관련된건 아니지만
 Promise Static 함수
 1.Promise.all , 2.Promise.allSettled , 3.Promise.any , 4.Promise.race
 
-1.Promise.al ㅍl([getName(),getTodo()]) 
+1.Promise.all([getName(),getTodo()]) 
 // >>> getName이 끝날떄까지 기다렸다 getTodo를 시작하는게 아니라 
 //      병렬적으로 같이 실행됨 
 
@@ -161,3 +164,7 @@ fetch("https://jsonplaceholder.typicode.com/users").then((response) =>{
         console.log('마무리')
     })
 }
+
+😀Async & Await😀
+    Promise 를 한 단계 감싸서 더 편하게 볼 수 있게 하는 문법
+        Promise chaining 으로 연결된 것을 간단하게 해준다.

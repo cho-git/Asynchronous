@@ -21,7 +21,7 @@ const ClBack = () => {
         }}>
             <h3>callBack</h3>
             <hr></hr>
-            <h4> 개발자도구 콘솔을 확인하세요</h4>
+            <h4>F12!</h4>
         </div>
     )
 }

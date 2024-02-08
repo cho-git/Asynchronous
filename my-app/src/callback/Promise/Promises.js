@@ -1,5 +1,6 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
+import PromiseStatic from "./PromiseStatic";
 function getdata() {
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -57,6 +58,19 @@ const Promises = () => {
         }}>
             <h3>Promise</h3>
             <hr></hr>
+            <h4>F12!</h4>
+            <div style={{
+                paddingTop: '20px'
+            }}>
+                <Link style={{
+                    marginRight: '5px',
+                    textDecoration: 'none',
+                    color: 'green',
+                    fontWeight: 'bold',
+                }}
+                    to={"/PromiseStatic"}>PromiseStatic </Link>
+                    
+            </div>
         </div>
     )
 }
